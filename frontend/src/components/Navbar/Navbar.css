@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FDFCF8;
+    padding: 10px 80px;
+    box-shadow: 0 10px 12px rgba(44, 62, 80, 0.12);
+}
+
+.navbar .image img {
+    height: 50px;
+    width: 50px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin: 20px;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.s ease;
+}
+
+.navbar ul li:hover {
+    color: grey;
+
+}
+
+.navbar ul li .bag-icon,
+.navbar ul li .search-icon,
+.navbar ul li .user-icon {
+    color: rgb(86, 85, 85);
+    font-size: 25px;
+}

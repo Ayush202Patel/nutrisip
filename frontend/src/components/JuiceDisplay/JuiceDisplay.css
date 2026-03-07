@@ -1,0 +1,15 @@
+.juice-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 80px;
+    gap: 30px;
+    row-gap: 50px;
+
+}
+
+.juice-display-home h1 {
+    font-size: 65px;
+    text-align: center;
+    margin-top: 30px;
+    color: green;
+}
