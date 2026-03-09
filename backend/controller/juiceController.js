@@ -20,7 +20,28 @@ const addJuice=async (req,res)=>{
         console.log(error)
     }
 }
+const deleteByName=async (req,res)=>{
+    try{
+        let {name}=req.body;
+        if(!name){
+            return res.statud(200).send({
+                success:false,
+                message:"All Fields are compulsory"
+            })
+        }
+        const find=await juiceModel.findOne({name});
+        if(find){
+            await juiceModel.findOneAndDelete(find._id);
+            res.status(200).send({
+                message:"Deleted Successfully",
+                success:true
+            })
+        }
+    }catch(error){
+        console.log(error)
+    }
 
+}
 const showAll=async (req,res)=>{
     try{
         const juices=await juiceModel.find({});
@@ -51,4 +72,4 @@ const deleteOne=async(req,res)=>{
         })
     }    
 }
-module.exports={addJuice,showAll,deleteOne}
+module.exports={addJuice,showAll,deleteOne,deleteByName}
