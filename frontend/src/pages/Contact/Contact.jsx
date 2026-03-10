@@ -18,7 +18,7 @@ const Contact = () => {
       
       {/* Contact Banner */}
       <div className="contact-banner">
-        <h1>Get in Touch ✉️</h1>
+        <h1>Get in Touch</h1>
         <p>We'd love to hear from you. Drop us a line or subscribe to our weekly juice drops!</p>
       </div>
 
@@ -35,7 +35,7 @@ const Contact = () => {
           </div>
 
           <div className="newsletter-card">
-            <h3>Join the NutriSip Club 🥤</h3>
+            <h3>Join the NutriSip Club</h3>
             <p>Subscribe to get 10% off your first order and weekly health tips!</p>
             <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
               <input type="email" placeholder="Enter your email" required />

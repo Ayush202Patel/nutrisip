@@ -8,6 +8,7 @@ import About from './pages/AboutUs/About';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import LoginPopup from './components/LoginPopUp/LoginPopUp';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 const App = () => {
   // Add this state to track if the popup should be shown
   const [showLogin, setShowLogin] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/aboutUs" element={<About />} />
+          <Route path='/placeOrder' element={<PlaceOrder/>} />
         </Routes>
       </div>
       

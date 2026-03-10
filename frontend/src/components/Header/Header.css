@@ -9,13 +9,8 @@
 /* The Big Hero Banner */
 .hero-banner {
     width: 100%;
-    min-height: 70vh;
-    /* Takes up 60% of the screen height */
-
-    /* Fallback green gradient if you don't have an image */
-    background: linear-gradient(135deg, rgba(46, 139, 87, 0.95), rgba(36, 107, 67, 0.85)),
-        url('/header-bg.jpg') center/cover no-repeat;
-
+    min-height: 80vh;
+    background: url('/header-bg.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;

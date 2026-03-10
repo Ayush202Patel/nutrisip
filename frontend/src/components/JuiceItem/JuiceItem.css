@@ -1,4 +1,4 @@
-/* Card Container */
+/* Container - Removed fixed width to fix the Grid conflict */
 .juice-card {
     background: #ffffff;
     border-radius: 16px;
@@ -7,10 +7,10 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    width: 260px;
-    /* Fixed width so all cards match perfectly */
-    margin: 15px auto;
+    position: relative;
     border: 1px solid #f0f0f0;
+    height: 100%;
+    /* Ensures all cards in a row are the same height */
 }
 
 .juice-card:hover {
@@ -18,113 +18,156 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
+/* Badge */
+.best-seller-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--accent-orange, #FF8C00);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
 /* Image Section */
-.juice-image-container {
-    height: 220px;
+.juice-image-wrapper {
+    height: 200px;
     width: 100%;
+    position: relative;
     overflow: hidden;
-    background-color: #fafafa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .juice-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ensures the image fills the box without stretching */
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
-.juice-card:hover .juice-image {
-    transform: scale(1.05);
-    /* Slight zoom effect on hover */
+.juice-image-wrapper:hover .image-overlay {
+    opacity: 1;
 }
 
-/* Text & Details */
-.juice-details {
-    padding: 20px;
+.juice-image-wrapper:hover .juice-image {
+    transform: scale(1.1);
+}
+
+.view-btn {
+    background: white;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Info Section - This matches your JSX exactly now */
+.juice-info {
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+.juice-header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
 }
 
-.juice-name {
-    margin: 0 0 8px 0;
-    font-size: 1.3rem;
-    color: #333;
-    font-weight: 700;
+.juice-category {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.juice-price {
-    margin: 0 0 20px 0;
+.star {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.star.filled {
+    color: #FFD700;
+}
+
+.juice-title {
     font-size: 1.2rem;
-    color: #FF8C00;
-    /* NutriSip Orange */
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.juice-desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+    height: 2.8em;
+    /* Limits description to 2 lines */
+    overflow: hidden;
+}
+
+/* Footer Section */
+.juice-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.price-tag {
+    display: flex;
+    align-items: baseline;
+    color: var(--primary-green, #2E8B57);
     font-weight: 800;
 }
 
-/* Button & Controls */
-.add-to-cart-btn {
-    background-color: #2E8B57;
-    /* Sea Green */
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
+.currency {
+    font-size: 0.9rem;
+    margin-right: 2px;
+}
+
+.amount {
+    font-size: 1.3rem;
+}
+
+/* Buttons */
+.add-btn-minimal {
+    background: #f1f8e9;
+    color: var(--primary-green, #2E8B57);
+    border: 1px solid var(--primary-green, #2E8B57);
+    padding: 6px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    width: 100%;
     font-weight: 600;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: all 0.2s;
 }
 
-.add-to-cart-btn:hover {
-    background-color: #246b43;
+.add-btn-minimal:hover {
+    background: var(--primary-green, #2E8B57);
+    color: white;
 }
 
-.add-to-cart-btn:active {
-    transform: scale(0.96);
-}
-
-/* Active Cart State (+ / -) */
-.quantity-controls {
+.modern-qty-selector {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background-color: #f1f8e9;
-    /* Very light green */
-    border-radius: 30px;
-    padding: 6px;
-    box-sizing: border-box;
+    gap: 12px;
+    background: #f1f8e9;
+    padding: 4px 8px;
+    border-radius: 8px;
 }
 
-.qty-btn {
-    background-color: #2E8B57;
-    color: white;
+.modern-qty-selector button {
+    background: none;
     border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
     font-size: 1.2rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s;
-}
-
-.qty-btn:hover {
-    background-color: #246b43;
-}
-
-.qty-count {
-    font-weight: 700;
-    color: #333;
-    font-size: 1.2rem;
-    width: 30px;
-    /* Keeps the numbers from shifting the buttons */
+    color: var(--primary-green, #2E8B57);
+    font-weight: bold;
 }

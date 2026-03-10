@@ -226,9 +226,9 @@ export const juices = [
     },
     {
     name: "Sugarcane",
-    price: 30,
+    price: 20,
     description:
-      "Smooth fruit goodness crafted for daily wellness and great taste.",
+      "Ganne ka juice bada glasss!!!!! 20 Rupay ka ! idhar , idhar aa jaiye",
     image:juice_21,
     rating: 4,
     },
@@ -313,7 +313,7 @@ export const juices = [
     rating: 4,
     },
     {
-    name: "Guava",
+    name: "Guav",
     price: 40,
     description:
       "Smooth fruit goodness crafted for daily wellness and great taste.",

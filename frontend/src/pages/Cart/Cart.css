@@ -141,44 +141,19 @@
 }
 
 .checkout-btn {
-    width: 100%;
+    width: 90%;
     background-color: #FF8C00;
-    /* Energetic Orange */
     color: white;
     border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    padding: 9px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 10px;
     transition: background-color 0.2s;
 }
 
 .checkout-btn:hover {
     background-color: #e67e00;
-}
-
-/* Make it responsive for mobile phones! */
-@media (max-width: 850px) {
-    .cart-container {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .cart-header-grid {
-        display: none;
-        /* Hide headers on mobile to save space */
-    }
-
-    .cart-item-row {
-        grid-template-columns: 1fr 2fr 1fr;
-        gap: 10px;
-    }
-
-    .cart-item-price,
-    .cart-item-total {
-        display: none;
-        /* Simplify mobile view */
-    }
 }

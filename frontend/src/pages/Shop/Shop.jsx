@@ -9,7 +9,7 @@ const Shop = () => {
       {/* Storefront Banner */}
       <div className="shop-banner">
         <div className="shop-banner-content">
-          <h1>Shop Fresh Juices 🥤</h1>
+          <h1>Shop Fresh Juices</h1>
           <p>
             Explore our variety of healthy, delicious, and 100% natural fruit juices. 
             Freshly squeezed to order and delivered right to your door.

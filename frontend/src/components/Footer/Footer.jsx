@@ -10,7 +10,7 @@ const Footer = () => {
         
         {/* Column 1: Brand & Info */}
         <div className="footer-brand">
-          <h2 className="footer-logo">NutriSip 🍊</h2>
+          <h2 className="footer-logo">NutriSip</h2>
           <p className="footer-desc">
             Fresh, natural, and delicious fruit juices delivered right to your door. Fuel your body with the best of nature.
           </p>
@@ -38,6 +38,7 @@ const Footer = () => {
             <li><Link to="#">Post your Reviews</Link></li>
             <li><Link to="#">Privacy Policy</Link></li>
             <li><Link to="#">Terms of Service</Link></li>
+            <li><Link to="#">FAQs</Link></li>
           </ul>
         </div>
 

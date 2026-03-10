@@ -9,7 +9,7 @@ const Header = () => {
       {/* Hero Banner Section */}
       <div className="hero-banner">
         <div className="hero-content">
-          <h1>Refresh Your Day with 100% Natural Juices 🍊</h1>
+          <h1>Refresh Your Day with 100% Natural Juices</h1>
           <p>
             Sip the goodness of nature. Freshly blended, no artificial flavors, 
             just pure energy in every drop.
@@ -21,7 +21,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Title for the Juice Display section below it */}
       <div className="section-title-container">
         <h2>Explore Our Popular Juices</h2>
         <div className="title-underline"></div>

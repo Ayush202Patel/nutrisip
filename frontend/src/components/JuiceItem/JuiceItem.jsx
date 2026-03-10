@@ -1,46 +1,64 @@
 import React, { useContext } from 'react';
 import { CartContext } from "../../context/CartContext";
-import "./JuiceItem.css"; // Make sure to import the CSS!
+import { Link } from 'react-router-dom'; // Added for routing
+import "./JuiceItem.css";
 
-const JuiceItem = ({ name, price, image }) => {
+const JuiceItem = ({ name, price, image, description, rating = 0, category = "Fresh Juice" }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
-
-  // Check if the item is already in the cart by its name
   const itemInCart = cartItems.find((i) => i.name === name);
 
   const handleAddToCart = () => {
     addToCart({ name, price, image });
   };
 
+  const renderStars = (num) => {
+    return [...Array(5)].map((_, i) => (
+      <span key={i} className={i < Math.floor(num) ? "star filled" : "star"}>
+        ★
+      </span>
+    ));
+  };
+
   return (
     <div className="juice-card">
+      {/* 1. Badge & Favorite (Visual improvement) */}
+      {rating >= 4.5 && <div className="best-seller-badge">Bestseller</div>}
       
-      <div className="juice-image-container">
-        <img src={image} alt={`${name} Juice`} className="juice-image" />
+      {/* 2. Image with Hover Effect */}
+      <div className="juice-image-wrapper">
+        <img src={image} alt={name} className="juice-image" />
       </div>
 
-      <div className="juice-details">
-        <h3 className="juice-name">{name}</h3>
-        <p className="juice-price">₹{price}</p>
+      <div className="juice-info">
+        <div className="juice-header">
+          <span className="juice-category">{category}</span>
+          <div className="juice-rating">{renderStars(rating)}</div>
+        </div>
 
-        {/* Conditional Rendering: Show Add button OR the + / - counter */}
-        {!itemInCart ? (
-          <button className="add-to-cart-btn" onClick={handleAddToCart}>
-            Add to Cart
-          </button>
-        ) : (
-          <div className="quantity-controls">
-            <button className="qty-btn" onClick={() => removeFromCart(name)}>
-              -
-            </button>
-            <span className="qty-count">{itemInCart.quantity}</span>
-            <button className="qty-btn" onClick={handleAddToCart}>
-              +
-            </button>
+        <h3 className="juice-title">{name}</h3>
+        <p className="juice-desc">{description}</p>
+
+        <div className="juice-footer">
+          <div className="price-tag">
+            <span className="currency">₹</span>
+            <span className="amount">{price}</span>
           </div>
-        )}
+
+          <div className="action-area">
+            {!itemInCart ? (
+              <button className="add-btn-minimal" onClick={handleAddToCart}>
+                <span className="plus-icon">+</span> Add
+              </button>
+            ) : (
+              <div className="modern-qty-selector">
+                <button onClick={() => removeFromCart(name)}>−</button>
+                <span>{itemInCart.quantity}</span>
+                <button onClick={handleAddToCart}>+</button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-      
     </div>
   );
 };

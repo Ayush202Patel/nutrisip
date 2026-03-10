@@ -1,15 +1,39 @@
-.juice-display {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin: 80px;
-    gap: 30px;
-    row-gap: 50px;
-
+.juice-display-home {
+    width: 100%;
+    margin-top: 30px;
+    padding: 0 20px;
 }
 
-.juice-display-home h1 {
-    font-size: 65px;
+/* The Grid Container */
+.juice-display {
+    display: grid;
+    /* This is mandatory! */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    /* Space between cards */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Optional: Title styling if you decide to add one inside this component later */
+.juice-display-home h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    color: var(--text-main, #333);
+    margin-bottom: 20px;
     text-align: center;
-    margin-top: 30px;
-    color: green;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
