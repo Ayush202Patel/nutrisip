@@ -18,7 +18,6 @@ const LoginPopup = ({ setShowLogin }) => {
         {/* Header Section */}
         <div className="login-popup-title">
           <h2>{currState}</h2>
-          {/* Clicking this X tells App.jsx to hide the popup */}
           <span onClick={() => setShowLogin(false)} className="close-btn">✖</span>
         </div>
 
