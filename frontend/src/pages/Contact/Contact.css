@@ -1,0 +1,172 @@
+/* Full Page & Banner */
+.contact-page {
+    width: 100%;
+    background-color: var(--bg-main, #fcfcfc);
+    padding-bottom: 80px;
+}
+
+.contact-banner {
+    background-color: #fff3e0;
+    /* A very soft, warm orange */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ffe0b2;
+    margin-bottom: 50px;
+}
+
+.contact-banner h1 {
+    font-size: 2.8rem;
+    color: var(--accent-orange, #FF8C00);
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.contact-banner p {
+    font-size: 1.15rem;
+    color: var(--text-light, #666);
+}
+
+/* Main Layout Container */
+.contact-container {
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    /* Right side gets a bit more space */
+    gap: 50px;
+}
+
+/* --- Left Side: Info & Newsletter --- */
+.contact-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-card,
+.newsletter-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color, #eee);
+}
+
+.info-card h3,
+.newsletter-card h3 {
+    color: var(--primary-green, #2E8B57);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.info-card p,
+.newsletter-card p {
+    color: var(--text-main, #333);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Newsletter Input Layout */
+.newsletter-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    /* Rounds only the left side */
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 12px 20px;
+    background-color: var(--accent-orange, #FF8C00);
+    color: white;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    /* Rounds only the right side */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--accent-orange-hover, #e67e00);
+}
+
+/* --- Right Side: Contact Form --- */
+.contact-form-section {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color, #eee);
+}
+
+.contact-form-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--text-main, #333);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--primary-green, #2E8B57);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-green, #2E8B57);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-green-hover, #246b43);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 850px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        /* Stacks the columns on top of each other */
+    }
+}

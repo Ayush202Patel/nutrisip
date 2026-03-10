@@ -1,0 +1,124 @@
+/* Dark Overlay Background */
+.login-popup {
+    position: fixed;
+    z-index: 1000;
+    /* Puts it on top of absolutely everything */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+/* The White Form Box */
+.login-popup-container {
+    background-color: white;
+    width: max(25vw, 340px);
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.login-popup-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-main, #333);
+}
+
+.login-popup-title h2 {
+    font-size: 1.8rem;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Inputs */
+.login-popup-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-popup-inputs input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.login-popup-inputs input:focus {
+    border-color: var(--primary-green, #2E8B57);
+}
+
+/* Submit Button */
+.login-submit-btn {
+    padding: 12px;
+    background-color: var(--accent-orange, #FF8C00);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-submit-btn:hover {
+    background-color: var(--accent-orange-hover, #e67e00);
+}
+
+/* Terms and Toggle Text */
+.login-popup-condition {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.login-popup-condition input {
+    margin-top: 4px;
+}
+
+.toggle-text {
+    font-size: 0.95rem;
+    color: #555;
+    text-align: center;
+}
+
+.toggle-text span {
+    color: var(--primary-green, #2E8B57);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Small animation so it pops in smoothly */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,80 @@
+/* Full Page Wrapper */
+.shop-page {
+    width: 100%;
+    min-height: 80vh;
+    background-color: var(--bg-main, #fcfcfc);
+    padding-bottom: 80px;
+}
+
+/* Storefront Banner */
+.shop-banner {
+    background-color: #f1f8e9;
+    /* Very soft, fresh green */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 40px;
+}
+
+.shop-banner-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.shop-banner h1 {
+    font-size: 2.8rem;
+    color: var(--primary-green, #2E8B57);
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.shop-banner p {
+    font-size: 1.15rem;
+    color: var(--text-light, #666);
+    line-height: 1.6;
+}
+
+/* Products Container */
+.shop-products-container {
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Little header above the actual grid */
+.shop-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color, #eee);
+}
+
+.shop-products-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-main, #333);
+}
+
+.product-count {
+    font-size: 0.95rem;
+    color: var(--text-light, #666);
+    font-style: italic;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .shop-banner {
+        padding: 40px 20px;
+    }
+
+    .shop-banner h1 {
+        font-size: 2.2rem;
+    }
+
+    .shop-products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

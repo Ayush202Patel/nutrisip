@@ -1,6 +1,73 @@
+/* =========================================
+   1. Global Variables (NutriSip Theme)
+   ========================================= */
+:root {
+  /* Brand Colors */
+  --primary-green: #2E8B57;
+  /* Healthy Sea Green */
+  --primary-green-hover: #246b43;
+  /* Darker green for hover states */
+  --accent-orange: #FF8C00;
+  /* Energetic Citrus Orange */
+  --accent-orange-hover: #e67e00;
+  /* Darker orange for hover states */
+
+  /* Neutral Colors */
+  --bg-main: #fcfcfc;
+  /* Very light off-white background */
+  --bg-card: #ffffff;
+  /* Pure white for product cards */
+  --text-main: #333333;
+  /* Dark gray for readable text */
+  --text-light: #666666;
+  /* Lighter gray for subtitles/descriptions */
+  --border-color: #eeeeee;
+  /* Soft borders */
+
+  /* Layout */
+  --max-width: 1200px;
+  /* Keeps the website from stretching too wide on big screens */
+}
+
+/* =========================================
+   2. CSS Reset
+   ========================================= */
+/* This removes default browser margins so your app looks identical on Chrome, Safari, etc. */
 * {
-  top: 0;
-  right: 0;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   3. Base Styles
+   ========================================= */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  /* Makes text look sharper */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default link styling globally */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default list bullets globally */
+ul {
+  list-style: none;
+}
+
+/* =========================================
+   4. Global Utility Classes
+   ========================================= */
+/* Add className="container" to any main wrapper to perfectly center your content */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
 }

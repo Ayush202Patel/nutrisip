@@ -36,3 +36,36 @@
     color: rgb(86, 85, 85);
     font-size: 25px;
 }
+
+/* Remove default link styling from React Router Links */
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+    /* This makes the link use whatever color the <li> is */
+}
+
+/* Add a nice hover effect so users know they can click it */
+.nav-menu ul li a:hover {
+    color: #FF8C00;
+    /* Your NutriSip Orange */
+    transition: color 0.2s ease-in-out;
+}
+
+/* Same hover effect for the cart icon */
+.icons a:hover {
+    color: #2E8B57;
+    /* Sea Green */
+}
+
+/* Styling the manually added active class */
+.nav-menu ul li a.active,
+.icons a.active {
+    color: var(--accent-orange, #FF8C00);
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent-orange, #FF8C00);
+    padding-bottom: 4px;
+}
+
+.nav-menu ul li a {
+    transition: all 0.2s ease-in-out;
+}
