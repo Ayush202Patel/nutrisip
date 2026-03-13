@@ -10,7 +10,7 @@ const Footer = () => {
         
         {/* Column 1: Brand & Info */}
         <div className="footer-brand">
-          <h2 className="footer-logo">NutriSip</h2>
+          <Link to={"/"} className="footer-logo">NutriSip</Link>
           <p className="footer-desc">
             Fresh, natural, and delicious fruit juices delivered right to your door. Fuel your body with the best of nature.
           </p>

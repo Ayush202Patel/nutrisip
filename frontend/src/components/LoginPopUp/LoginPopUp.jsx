@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import './LoginPopup.css';
+import toast from "react-hot-toast"
+import axios from "axios"
 
 const LoginPopup = ({ setShowLogin }) => {
   // State to toggle between Login and Sign Up
   const [currState, setCurrState] = useState("Sign Up");
-
-  const handleSubmit = (e) => {
+  const handleSubmit=(e)=>{
     e.preventDefault();
-    alert(`Successfully submitted ${currState} form!`);
-    // Later, you will connect this to your backend database
-  };
-
+  }
   return (
     <div className="login-popup">
       <form className="login-popup-container" onSubmit={handleSubmit}>
