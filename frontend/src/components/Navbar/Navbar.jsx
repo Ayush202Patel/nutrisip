@@ -7,6 +7,7 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+import Search from "../Search/Search";
 
 const Navbar = ({ setShowLogin }) => {
   // Get the current route path (e.g., "/", "/shop", "/about")

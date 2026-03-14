@@ -6,9 +6,29 @@ import axios from "axios"
 const LoginPopup = ({ setShowLogin }) => {
   // State to toggle between Login and Sign Up
   const [currState, setCurrState] = useState("Sign Up");
-  const handleSubmit=(e)=>{
+  const [name,setName]=useState("");
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+  const handleSubmit=async (e)=>{
     e.preventDefault();
+    try {
+      let endPoint="";
+      let data={}
+      if(currState=="Sign Up"){
+         endPoint="registerUser";
+         data={email,name,password}
+      }else{
+         endPoint="loginUser";
+         data={email,password}
+      }
+      let URL=`http://localhost:4000/api/v1/${endPoint}`;
+      const res=await axios.post(URL,data);
+      toast.success(res.data.message);      
+    } catch (error) {
+      toast.error(error.response?.data?.message)
+    }
   }
+  
   return (
     <div className="login-popup">
       <form className="login-popup-container" onSubmit={handleSubmit}>
@@ -19,14 +39,12 @@ const LoginPopup = ({ setShowLogin }) => {
           <span onClick={() => setShowLogin(false)} className="close-btn">✖</span>
         </div>
 
-        {/* Input Fields */}
         <div className="login-popup-inputs">
-          {/* Only show the Name field if the user is Signing Up */}
           {currState === "Sign Up" && (
-            <input type="text" placeholder="Your name" required />
+            <input type="text"  value={name} onChange={(e)=>setName(e.target.value)} placeholder="Your name"  />
           )}
-          <input type="email" placeholder="Your email" required />
-          <input type="password" placeholder="Password" required />
+          <input type="email"  value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Your email"  />
+          <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password"  />
         </div>
 
         {/* Submit Button */}

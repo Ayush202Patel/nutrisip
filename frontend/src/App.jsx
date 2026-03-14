@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import LoginPopup from './components/LoginPopUp/LoginPopUp';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import { Toaster } from 'react-hot-toast';
 const App = () => {
   // Add this state to track if the popup should be shown
   const [showLogin, setShowLogin] = useState(false);
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/aboutUs" element={<About />} />
           <Route path='/placeOrder' element={<PlaceOrder/>} />
         </Routes>
+        <Toaster/>
       </div>
       
       <Footer />
