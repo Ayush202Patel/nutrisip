@@ -1,64 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Search.css';
 
-const Search = ({ juiceData }) => {
+const Search = ({ juiceData, onClose }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate();
+  const searchRef = useRef(null);
 
-  // Filter and Sort logic
   useEffect(() => {
     if (searchTerm.trim() === "") {
       setFilteredResults([]);
-      setShowDropdown(false);
       return;
     }
 
     const results = juiceData
-      .filter((item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+      .filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      .sort((a, b) => a.name.localeCompare(b.name));
 
     setFilteredResults(results);
-    setShowDropdown(true);
   }, [searchTerm, juiceData]);
 
+  const handleProductClick = (productName) => {
+    // Redirects to shop page and targets the specific product ID
+    navigate(`/shop#${productName.replace(/\s+/g, '-').toLowerCase()}`);
+    onClose();
+  };
+
   return (
-    <div className="search-container">
-      <div className="search-input-wrapper">
-        <input
-          type="text"
-          placeholder="Search for juice..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onFocus={() => searchTerm && setShowDropdown(true)}
-        />
-        <button className="search-btn">🔍</button>
-      </div>
+    <div className="search-bar-wrapper" ref={searchRef}>
+      <input
+        type="text"
+        placeholder="Search juice..."
+        value={searchTerm}
+        autoFocus
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="search-input"
+      />
 
-      {/* Dropdown List */}
-      {showDropdown && filteredResults.length > 0 && (
-        <ul className="search-dropdown">
-          {filteredResults.map((item) => (
-            <li key={item.id} onClick={() => setShowDropdown(false)}>
-              <Link to={`/product/${item.name}`} className="dropdown-item">
-                <img src={item.image} alt={item.name} className="dropdown-img" />
-                <div className="dropdown-info">
-                  <p className="dropdown-name">{item.name}</p>
-                  <p className="dropdown-price">₹{item.price}</p>
+      {searchTerm && (
+        <div className="search-dropdown">
+          {filteredResults.length > 0 ? (
+            filteredResults.map((item) => (
+              <div 
+                key={item.id} 
+                className="dropdown-item"
+                onClick={() => handleProductClick(item.name)}
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={item.image} alt={item.name} />
+                <div className="item-info">
+                  <p className="name">{item.name}</p>
+                  <p className="price">₹{item.price}</p>
                 </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {/* No Results Case */}
-      {showDropdown && searchTerm && filteredResults.length === 0 && (
-        <div className="search-dropdown no-results">
-          No juices found.
+              </div>
+            ))
+          ) : (
+            <div className="no-result">Not found</div>
+          )}
         </div>
       )}
     </div>

@@ -44,6 +44,45 @@
     /* This makes the link use whatever color the <li> is */
 }
 
+.icons ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.search-wrapper-li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-inline-container {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    z-index: 1000;
+}
+
+.search-icon.active {
+    color: #ff6347;
+    /* Highlights 'X' when open */
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Add a nice hover effect so users know they can click it */
 .nav-menu ul li a:hover {
     color: #FF8C00;

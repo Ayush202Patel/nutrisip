@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import { CartContext } from "../../context/CartContext";
-import { Link } from 'react-router-dom'; // Added for routing
+import { Link } from 'react-router-dom';
 import "./JuiceItem.css";
 
 const JuiceItem = ({ name, price, image, description, rating = 0, category = "Fresh Juice" }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
   const itemInCart = cartItems.find((i) => i.name === name);
+
+  // Create a URL-friendly ID for the scroll-to-feature
+  // Example: "Guava Juice" becomes "guava-juice"
+  const productId = name.replace(/\s+/g, '-').toLowerCase();
 
   const handleAddToCart = () => {
     addToCart({ name, price, image });
@@ -20,14 +24,17 @@ const JuiceItem = ({ name, price, image, description, rating = 0, category = "Fr
   };
 
   return (
-    <div className="juice-card">
-      {/* 1. Badge & Favorite (Visual improvement) */}
+    /* Added the dynamic ID here for the Search Redirection */
+    <div id={productId} className="juice-card">
+      
       {rating >= 4.5 && <div className="best-seller-badge">Bestseller</div>}
       
-      {/* 2. Image with Hover Effect */}
-      <div className="juice-image-wrapper">
-        <img src={image} alt={name} className="juice-image" />
-      </div>
+      {/* Wrapped image in a Link to Shop for better navigation */}
+      <Link to="/shop" className="juice-image-link">
+        <div className="juice-image-wrapper">
+          <img src={image} alt={name} className="juice-image" />
+        </div>
+      </Link>
 
       <div className="juice-info">
         <div className="juice-header">
@@ -35,7 +42,10 @@ const JuiceItem = ({ name, price, image, description, rating = 0, category = "Fr
           <div className="juice-rating">{renderStars(rating)}</div>
         </div>
 
-        <h3 className="juice-title">{name}</h3>
+        <Link to="/shop" className="juice-title-link">
+          <h3 className="juice-title">{name}</h3>
+        </Link>
+        
         <p className="juice-desc">{description}</p>
 
         <div className="juice-footer">
