@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import './LoginPopup.css';
 import toast from "react-hot-toast"
 import axios from "axios"
-
+import {useNavigate} from "react-router-dom"
 const LoginPopup = ({ setShowLogin }) => {
   // State to toggle between Login and Sign Up
   const [currState, setCurrState] = useState("Sign Up");
   const [name,setName]=useState("");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
+  const navigate=useNavigate();
   const handleSubmit=async (e)=>{
     e.preventDefault();
     try {
@@ -23,7 +24,8 @@ const LoginPopup = ({ setShowLogin }) => {
       }
       let URL=`http://localhost:4000/api/v1/${endPoint}`;
       const res=await axios.post(URL,data);
-      toast.success(res.data.message);      
+      toast.success(res.data.message);
+      navigate("/");      
     } catch (error) {
       toast.error(error.response?.data?.message)
     }
